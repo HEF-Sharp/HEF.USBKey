@@ -1,0 +1,63 @@
+[settings]
+; 1033 = 0x0409
+CodePage=1033
+Language=English
+FontFace=Tahoma
+FontHeight=8
+
+[strings]
+;==============================================================
+; Dialog Box String
+;==============================================================
+1=OK
+2=Cancel
+1008=Don't show anymore
+1010=Run manager
+1012=View detail
+
+;==============================================================
+; Runtime String
+;==============================================================
+10000=UKey is inserted
+10001=Ukey is removed
+10002=Public Key
+10003=Private Key
+10004=Certificate
+10005=Saving %s, please wait...
+10006=%s is saved successfully
+10007=Failed to save %s
+10008=Generating key pair, please wait...
+10009=Key pair are generated successfully
+10010=Failed to generate key pair
+10011=Low level initializing the UKey, please wait...
+10012=Low level initialization finished
+10013=Low level initialization failed
+10014=initializing the UKey, please wait...
+10015=UKey is initialized successfully
+10016=Failed to initialize UKey
+10017=The inserted UKey can not be recognized
+10018=Unsafe Removal of Device
+10019=One certificate or more in the token is to be expired. Please remember to update.
+10029=One certificate or more in the token is to be already expired. Please remember to update.
+
+10020=The user PIN has not been changed after initialized. Please remember to change.
+10021=The user PIN has not been changed after initialized. Would you like to change it now?
+
+;10022=The software Version of the inserted device is newer than the system's ,you need update your software, please close the programs that operate the device and close the internet explorer ,Uninstall the ePass3003 sofeware, and reinstall it from the cdrom.
+;10023=desktop
+10024=update the software, please wait ...
+10025=Reinstall the software,please wait...
+;==============================================================
+; Common string
+;==============================================================
+11000=Certificate register is ready
+11001=Failed to load PKCS#11 library, please check your installation
+11002=Can not start UKey monitor, the certificate register can not works perfectly well
+11003=EnterSafe Certificate Register - %s
+11004=Invalid after
+11005=Common name
+11006=Container name
+11007=Key spec.
+11008=Serial number
+11009=Signature
+11010=Key exchange

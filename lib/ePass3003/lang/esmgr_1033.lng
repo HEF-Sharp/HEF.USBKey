@@ -1,0 +1,595 @@
+[settings]
+;1033 = 0x0409
+CodePage=1033
+Language=English
+FontFace=宋体
+FontHeight=9
+
+[strings]
+;==============================================================
+; Common strings
+;==============================================================
+;10000=EnterSafe PKI 管理工具
+10000=ZJCA Certificate UKey Manager
+;10001=管理员版
+10001=Admin Version
+
+;==============================================================
+; Common Dialog box strings
+;==============================================================
+;1=确定
+1=OK
+;2=取消
+2=Cancel
+
+;==============================================================
+; About Box
+;==============================================================
+100=About EnterSafe PKI Manager
+;100=关于 ZJCA数字证书 UKey管理工具
+101=&About EnterSafe PKI Manager...
+;101=关于 ZJCA数字证书 UKey管理工具(&A)...
+;1057=EnterSafe PKI Manager V1.1
+;1057=ZJCA数字证书 UKey管理工具 V1.1
+;1058=Developer： EnterSafe\n\nCopyright(C) 2007-2009 EnterSafe
+;1058=开发：EnterSafe\n\n版权所有(C) 2007-2009 EnterSafe
+;1064=http://www.EnterSafe.com
+
+
+
+1057=Version：
+1058=Address：Jinghui Business Building No.631,Zhongshan North Road,Hangzhou City. Postcode：310014 
+1064=Tel：0571-85800758 Fax：0571-85800770-116 
+
+;==============================================================
+; Main dlg
+;==============================================================
+;---Static string
+;---can be enabled by ml_loadDlgStr
+;1005=查看证书信息(&V)
+1005=Certificate &View
+;1006=修改用户PIN码(&P)
+1006=Change User &PIN
+;1007=删除...(&D)
+1007=&Delete...
+;1008=修改USBKey名(&T)
+1008=Change &Token Name
+;1009=系统选项(&O)
+1009=&Options
+;1011=初始化(&I)
+1011=&Initialize
+;1012=导出...(&E)
+1012=&Export....
+;1013=解锁(&U)
+1013=&Unblock
+;1014=修改SO PIN(&G)
+1014=Chan&ge SO PIN
+;1015=登录(&L)
+1015=&Login
+;1037=导入...(&R)
+1037=Impo&rt...
+;1056=欢迎使用EnterSafe PKI 管理工具。请先登录。
+1056=Welcome to EnterSafe PKI Manager. Please login.
+;1062=查看属性显示->
+1062=More Details->
+;1060=隐藏属性显示->
+1060=Hide Details->
+;1072=显示全部PCKS#11属性
+1072=Show All PCKS#11 properties
+
+;1122=传输密钥
+1122=Global Key:
+
+;1126=在线更新(&U)
+1126=autoupdate(&U)
+;1127=选项(&S)
+1127=option(&S)
+;1130=注册到&IE
+1130=register to &IE
+;1131=从IE中删除
+1131=delete from IE
+
+
+;--Alternative string
+;--Set in controllers
+;30001=登出(&L)
+30001=&Log out
+;30002=退出(&X)
+30002=E&xit
+;30003=欢迎使用EnterSafe PKI 管理工具。
+30003=Welcome to EnterSafe PKI Manager.
+;30050=请先登录。
+30050=Please login.
+;--Set in list view
+;30004=数据域
+30004=Field
+;30005=值
+30005=Value
+;30006=属性名称
+30006=Name
+;30007=属性值
+30007=Value
+;30008=证书容器
+30008=Certificate Container
+;30009=制造商
+30009=Manufacturer
+;30010=标志
+30010=Flags
+;30011=硬件版本
+30011=Hardware Version
+;30012=固件版本
+30012=Firmware Version
+;30013=USBKey名称
+30013=Token Name
+;30014=型号
+30014=Model
+;30015=序列号
+30015=Serial Number
+;30016=最大PIN长度
+30016=Max PIN Length
+;30017=最小PIN长度
+30017=Min PIN Length
+;30018=公共数据区总空间
+30018=Total Public Memory
+;30019=公共数据区剩余空间
+30019=Free Public Memory
+;30020=秘密数据区总空间
+30020=Total Private Memory
+;30021=秘密数据区剩余空间
+30021=Free Private Memory
+;30022=可用于加密
+30022=available for Encryption
+;30023=可用于验证
+30023=available for Verification
+;30024=可用于解密
+30024=available for Decryption
+;30025=可用于签名
+30025=available for Signature
+;30026=是
+30026=Yes
+;30027=否
+30027=No
+;30044=算法标识
+30044=Algorithm ID
+;30045=加密块长度
+30045=Cipher block length
+;30046=密钥长度
+30046=Key length
+;30047=干扰字符
+30047=Salt value
+;30048=密钥访问权限标识
+30048=Key permission
+;30051=容器名称
+30051=Container name
+;30052=证书名称
+30052=Certificate Name
+;30053=证书ID
+30053=Certificate ID
+;30054=证书序列号
+30054=Serial Number
+
+;--Set in tree view
+;30028=USBKey列表
+30028=Token list
+;30029=签名用（只用于签名/验证）
+30029=Signature(Signature/Validation only)
+;30030=密钥交换用（用于加密/解密以及其他）
+30030=Key Exchange(Encryption/Decryption etc.)
+;30031=公钥
+30031=Public Key
+;30032=私钥
+30032=Private Key
+;30033=数据
+30033=Data
+;30055=证书
+30055=Certificate
+
+;==============================================================
+; Login dlg
+;==============================================================
+;---Static string
+;---can be enabled by ml_loadDlgStr
+;1041=PIN码:
+1041=User PIN:
+;1103=使用软键盘
+1103=Enable soft keyboard
+;--Alternative string
+;30034=请输入PIN码:
+30034=Input user PIN:
+;30035=登录到 %s\r\n\r\n登录后,即可使用导入、删除等功能
+30035=Login to %s.\r\n\r\nMore functions are available after logging in.
+
+;==============================================================
+; Import dlg
+;==============================================================
+;---Static string
+;---can be enabled by ml_loadDlgStr
+;1020=浏览
+1020=Browse
+;1022=新建容器（请勿使用'\'）:
+1022=New container(NOT including '\'):
+;1023=使用已有的容器:
+1023=Existing container:
+;1025=签名（只用于签名/验证）
+1025=Signature(Signature/Validation only)
+;1026=密钥交换（用于加密/解密以及其他）
+1026=Key exchange(Encryption/Decryption etc.)
+;1043=证书访问密码:
+1043=File password:
+;1104=用途
+1104=Type:
+;1105=选择容器
+1105=Select container
+;1106=选择要导入的文件
+1106=Select a certificate file to import
+;1119=导入文件中的全部证书
+1119=All certificate(s)
+;1120=只导入文件中的用户证书
+1120=Only user certificate(s)
+
+1212=Signature
+1213=Key exchange
+
+
+;==============================================================
+; SetPIN dlg
+;==============================================================
+;---Static string
+;---can be enabled by ml_loadDlgStr
+;1046=原PIN码:
+1046=Old user PIN:
+;1047=新PIN码:
+1047=New user PIN:
+;1048=确认:
+1048=Confirm:
+;1092=低
+1092=L
+;1093=中
+1093=M
+;1094=高
+1094=H
+;1096=检查强度
+1096=Check intensity
+;1101=使用软键盘
+1101=Enable soft keyboard
+;--Alternative string
+;--for set user PIN
+;30036=修改%s的PIN码
+30036=Change user PIN of %s
+;--for set SO PIN
+;30037=修改%s的SO PIN
+30037=Change SO PIN of %s
+;30038=原SO PIN:
+30038=Old SO PIN:
+;30039=新SO PIN:
+30039=New SO PIN:
+;--for unlock
+;30040=解锁 %s
+30040=Unblock %s.
+;30041=SO PIN:
+30041=SO PIN:
+;30042=新用户PIN:
+30042=New user PIN:
+;---for export
+;30043=导出
+30043=Export
+
+;==============================================================
+; Token name dlg
+;==============================================================
+;---Static string
+;---can be enabled by ml_loadDlgStr
+;1049=请勿全部使用空格或以空格结尾
+1049=Do NOT end with blank.
+;--Alternative string
+;30056=修改 %s 的名称
+30056=Change name of %s.
+
+;==============================================================
+; Low init dlg
+;==============================================================
+;---Static string
+;---can be enabled by ml_loadDlgStr
+;1081=初始化参数
+1081=Initialize parameters
+;1082=USBKey名称:
+1082=Token name:
+;1083=SO PIN:
+1083=SO PIN:
+;1084=用户PIN码:
+1084=User PIN:
+;1085=SO PIN最大重试次数:
+1085=SO PIN try count:
+;1086=用户PIN最大重试次数:
+1086=User PIN try count:
+;1087=公有数据区大小:
+1087=Public memory size:
+;1088=私有数据区大小:
+1088=Private memory size:
+;1089=预置RSA密钥对个数:
+1089=RSA key pair count:
+;1091=超时（单位：分钟）：
+1091=Timeout(in minute):
+;1107=(数据区大小总计不超过%d)
+1107=Total memory size no more than %d
+;1108=(%d - %d位)
+1108=PIN length range(%d - %d bytes)
+;1110=(%d - %d)
+1110=PIN retry times range(%d - %d)
+;1109=(不超过%d个)
+1109=(no more than %d)
+;1111=不超过%d分钟;设0表示不限制超时
+1111=no more than %d minutes;0 as no timeout
+;1113=(请勿以空格结尾)
+1113=Token Name NOT end with blank
+;1125=输入您设置的全局密钥
+1125=Please input your global key
+
+;==============================================================
+; Options Dlg-选项
+;==============================================================
+
+177=options
+1128=open url when ukey insert
+1132=ok
+1133=cancel
+1141=Clear SSL Session Of IE
+
+;==============================================================
+; Update Dlg-在线更新
+;==============================================================
+;178=在线更新
+178=AutoUpdate
+;1135=状态：
+1135=Status:
+;1137=重试
+1137=Retry
+
+;==============================================================
+; Message string
+;==============================================================
+;---Common string
+;33000=成功!
+33000=Succeeded!
+;33001=失败!
+33001=Failed!
+;33002=完毕!
+33002=Complete!
+;33003=发生错误!
+33003=Error!
+;33039=是否继续？
+33039=Continue?
+;33012=是否重新尝试？您还有%d次机会 
+33012=Try again? You can try %d times.
+;33013=重新登录后即可继续使用
+33013=To continue, please login again.
+;33014=两次输入的新PIN码不一致,请重新输入
+33014=The new PINs are not identical. Please check.
+;33038=您只剩下一次机会
+33038=Now you can try for the last time.
+;33056=假如再次输入错误的PIN码,将被锁定
+33056=If user PIN is still incorrect, user will be blocked.
+;33057=假如再次输入错误的SO PIN,将被锁定
+33057=If SO PIN is still incorrect, SO will be blocked.
+
+;---Operation string
+;33005=登录中,请稍等...
+33005=Logging in. Please wait...
+;33006=正在导入,请不要拔出USBKey!
+33006=Importing...DO NOT remove the token!
+;33007=正在删除,请不要拔出USBKey!
+33007=Deleting...DO NOT remove the token!
+;33008=正在初始化,请不要拔出USBKey!
+33008=Initializing...DO NOT remove the token!
+;33009=即将删除所选的%d个对象
+33009=Ready to delete the selected %d object(s).
+;33010=即将删除所选的容器以及容器中的所有数据\r\n删除后,容器中的证书和密钥对都将无法使用
+33010=Ready to delete selected container and data within.\r\nAll certificates and keys in the container would not be available any more.
+;33011=即将删除所选的USBKey中的所有数据,包括容器、证书以及密钥。\r\n删除后,所有容器、证书以及密钥都将无法使用
+33011=Ready to delete all data in the selected token.\r\nAll containers, certificates and keys in the token would not be available any more.
+;---注意英文后面有空格
+;33067=删除
+33067=Deletion 
+;33068=导入
+33068=Importing 
+;33069=导出
+33069=Exporting 
+;33070=修改PIN码
+33070=Changing user PIN 
+;33071=修改USBKey名称
+33071=Changing token name 
+;33072=解锁
+33072=Unblocking 
+;33073=初始化
+33073=Initializing 
+;33074=修改SO PIN 
+33074=Changing SO PIN 
+
+;---notice string
+;33015=USBKey中已经存在相同的证书。
+33015=The same certificate has existed in the token.
+;33016=确定要退出吗？
+33016=Are you sure to quit?
+;33017=PIN码不正确
+33017=Incorrect user PIN.
+;33018=SO PIN不正确
+33018=Incorrect SO PIN.
+;33019=您只剩下一次机会。\r\n假如再次输入错误的PIN码,将被锁定
+33019=Now you can try for the last time.\r\nIf the user PIN is still incorrect, the token will be blocked.
+;33020=您只剩下一次机会。\r\n假如再次输入错误的SO PIN,将被锁定
+33020=Now you can try for the last time.\r\nIf the SO PIN is still incorrect, the token will be blocked.
+;33021=原PIN码不正确
+33021=Incorrect old user PIN.
+;33022=原SO PIN不正确
+33022=Incorrect old SO PIN.
+;33023=请输入新PIN码
+33023=Please input new user PIN
+;33024=请输入新SO PIN
+33024=Please input new SO PIN
+;33025=使用前请正确地安装%s
+33025=Please install %s correctly before using
+;33026=每个USBKey存储的证书不能多于%d个
+33026=There could not be more than %d certificates in one token
+;33027=请选择要使用的USBKey
+33027=Please select the token to use
+;33028=请选择要删除的对象
+33028=Please select an object to delete
+;33029=请选择要导入的证书文件
+33029=Please choose a certificate file to import
+;33030=请登录USBKey
+33030=Please login
+;33031=请选择要查看的证书
+33031=Please select the certificate to browse
+;33032=请选择要使用的容器
+33032=Please select container
+;33033=请选择要导入的文件
+33033=Please select a certificate file to import
+;33034=请使用 %d 位- %d 位的SO PIN
+33034=Please input %d - %d bytes SO PIN
+;33035=请使用 %d 位- %d 位的PIN码
+33035=Please input %d - %d bytes user PIN
+;33036=请选择要导出的证书
+33036=Please select a certificate to export
+;33037=请确认所有参数都已设置为有效的值
+33037=Please make sure that VALID value has been set in ALL parameters 
+
+;---Error message
+;33040=USBKey中没有足够的空间存储证书
+33040=Not enough memory to store certificate
+;33041=要导入的文件不存在
+33041=The file does not exist
+;33042=不支持的证书格式
+33042=Certificates File Format is not recognized or supported
+;33043=USBKey仅仅支持%d位及以下的RSA密钥对
+33043=Token supports no more than %d bits RSA key pair only
+;33044=导入密钥对失败
+33044=Importing key pair failed
+;33045=导入证书失败
+33045=Importing certificate failed
+;33046=用户被锁定
+33046=User PIN has been blocked
+;33047=USBKey被拔出,请插入
+33047=Token is removed. Please insert
+;33048=证书解析失败,可能是访问密码错误
+33048=Error occurred when decoding, maybe because invalid password is used
+;33049=数据格式错误
+33049=Invalid Data Format
+;33050=新PIN码过长
+33050=New user PIN is too long
+;33051=新SO PIN过长
+33051=New SO PIN is too long
+;33052=PIN码被锁定
+33052=User Pin has been blocked
+;33053=SO PIN被锁定
+33053=SO Pin has been blocked
+;33054=USBKey被写保护
+33054=Token is write-protected
+;33055=如果所选的容器中存有相同用途的证书或密钥，将被替换
+33055=If there exists any certificate(s) or key(s) with same usage in the selected container, it will be replaced.
+;33058=不支持导入PFX格式的根证书
+33058=Importing root certificate with PFX format is not available
+;33059=USBKey状态改变
+33059=Token status has been changed.
+;33060=不同格式的证书不能混装,请选择其他容器
+33060=Please select another container
+;33061=初始化所选的USBKey\r\nUSBKey中的所有数据,包括容器、证书以及密钥都将被清除
+33061=Initialize the selected token.\r\nAll data in the token will be cleared ,including containers, certificates and keys.
+;33062=容器中的数据缺少与证书匹配的密钥对，请重新选择容器或创建新的容器
+33062=No key pair matching the certificate is found in the data of the container. Please select another container or create a new container
+;33063=导入的证书将会替换已有的证书: %s
+33063=The certificate to be imported will replace the existing certificate: %s.
+;33075=您还有%d次重试的机会
+33075=You can try %d times.
+;33076=数据区总体大小不应超过%d
+33076=Total memory size should not be more than %d
+;33077=USBKey超时
+33077=Token timed out
+;33078=容器中存在相同的证书或密钥，请选择其他容器或新建容器
+33078=The same certificate or key found in this container. Please select another container or build a new one
+;33079=[需要更新]
+33079=[Update needed]
+;33080=相同的容器已经存在。是否使用已有的容器？
+33080=The container already exists. Would you use this container?
+;33081=请保留要初始化的USBKey并拔除其他的USBKey
+33081=Please keep the token to be initialized and remove all others.
+;33082=两次输入的用户PIN码不一致，请重新输入
+33082=The user PINs are not identical. Please check.
+;33083=两次输入的SO PIN不一致，请重新输入
+33083=The SO PINs are not identical. Please check.
+33084=Token supports %ld-%ld bits RSA key pairs only!
+;33085=操作失败，卡片是写保护的！
+33085=Operation failed! The card is written-protected！
+
+33090=Register Certificate
+33091=Off Register Certificate
+
+
+;33092=请选择要注册的证书
+33092=please Select the certificate to be registered
+;33093=请选择要注销的证书
+33093=please Select the certificate to be deleted from ie
+
+;33101=证书已经过期
+33101=certificate has expired
+;33102=证书未生效
+33102=certificate is not effective
+;33103=%d天后证书即将过期，请进行延期
+33103=after %d days,the certificate is about to expire, please be updated
+
+
+
+;选项Dlg message
+;33201=网址为空
+33201=Not Set Website
+;33202=网址最大长度不大于1024个字节
+33202=maximum length of URL not more than 1024 bytes
+
+;Main Dlg message
+
+;33301=正在进行更新
+33301=AutoUpdate is already run.
+;33302=网络不可用
+33302=Network isn't work
+33303=
+;33303=
+;33304=当前用户不是管理员，请以管理员身份进行安装更新。
+33304=The current user can not have access to the application as the administrator, please return this update installation from an administrator account.
+;33305=当前版本已经为最新版本，不需要更新。
+33305=Current version is the latest, don't need to update
+;33306=从服务器获取配置文件失败，请检查网络再重试
+33306=Get configuration file fromUpdate Server error, please check your network and retry!
+;33307=发现新版本，必须以管理员身份进行更新，要继续？
+33307=A new version is available on Update server. You must use an administrator privileges to process update, are you sure you want to continue?
+;33308=发现新版本（%s），确定要更新吗？
+33308=A new version（%s) is available on Update server, are you sure you want to make update now?
+
+
+;Update Dlg message
+;33401=正在连接服务器下载文件，请等待...
+33401=Accessing Update Server to download file, please wait...
+
+;33402=更新失败，请检查系统配置再重试
+33402=Update failed, please check system configuration and retry!
+
+;33403=验证签名失败，请重试
+33403=Verify the signature of update file failed, current update did not succeed, please retry!
+
+;33404=正在更新，请等待...
+33404=updateing, please...
+
+;33405=安装更新失败，请重试
+33405=install failed，current update did not succeed, please retry!
+
+;33406=更新成功
+33406=Updated successfully!
+
+;33407=已下载%s（总大小：%s）
+33407=Downloaded %s (total size %s)
+
+;33408=从服务器获取更新文件成功,正在验证是否合法，请稍候...
+33408=download file success,verifying,please...
+
+35001=Import
+35002=Not Import
+
+36001=Open Register Fail

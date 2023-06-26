@@ -1,0 +1,53 @@
+[settings]
+CodePage=1033
+Language=English
+FontFace=Tahoma
+FontHeight=8
+
+[strings]
+;==============================================================
+; Common strings
+;==============================================================
+1=OK
+2=Cancel
+;==============================================================
+; Select Slot Dialog
+;==============================================================
+106=Select USBKey
+1007=Select a USBKey to continue:
+10000=Name
+10001=Serial Number
+;==============================================================
+; PIN Logon Dialog
+;==============================================================
+107=OK
+1010=Now need verify your UKey PIN:
+1011=UKey PIN:
+2000=Login
+2001=Cancel
+2003=Enable soft keyboard
+2008=Change PIN
+20001=Verify UKey PIN
+20002=UKey Pin has been blocked !
+20003=UKey Pin is Wrong! Retry times : 
+20004=The length of PIN is out of range, please check and input again!
+20005=The initial password has invalid characters, please check and input again!
+20006=The length of initial password is invalid, please check and input again!
+20007=The token has been removed!
+20008=Some unknown error has occurred£¬please retry or cancel!
+;==============================================================
+; PIN Change Dialog
+;==============================================================
+140=Change UKey PIN
+1046=Old PIN
+1047=New PIN
+1048=Confirm
+1092=L
+1093=M
+1094=H
+1101=Enable soft keyboard
+1096=Check intensity
+20009=The new PINs are not identical. Please check.
+20010=Please input %d - %d bytes SO PIN
+20011=Please input %d - %d bytes UKey PIN
+
