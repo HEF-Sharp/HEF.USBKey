@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
 [assembly: AssemblyTitle("HEF.USBKey.Services.SKF")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("USBKey Services with Chinese Standard SKF Interface")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("GreatBillows")]
 [assembly: AssemblyProduct("HEF.USBKey.Services.SKF")]
-[assembly: AssemblyCopyright("Copyright ©  2023")]
+[assembly: AssemblyCopyright("Copyright © GreatBillows 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
