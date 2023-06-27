@@ -56,11 +56,5 @@
     <Compile Include="IUSBKeyProvider_SKF.cs" />
     <Compile Include="USBKeyProvider_SKF_Base.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HEF.USBKey.Native.SKF\HEF.USBKey.Native.SKF.csproj">
-      <Project>{e77dd656-6af1-4250-b80d-40ba2f1794be}</Project>
-      <Name>HEF.USBKey.Native.SKF</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
