@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HEF.USBKey.Native.SKF</id>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <title>HEF.USBKey.Native.SKF</title>
     <authors>GreatBillows</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -13,7 +13,7 @@
     <copyright>Copyright © GreatBillows 2023</copyright>
   </metadata>
   <files>
-      <file src="Assets\\runtimes\\win-x86\\net45\\**" target="runtimes\\win-x86\\net45\\" />
-      <file src="HEF.USBKey.Native.SKF.props" target="build\\net45"/>
+      <file src="Assets\runtimes\win-x86\net45\**" target="runtimes\win-x86\net45\" />
+      <file src="HEF.USBKey.Native.SKF.props" target="build\net45"/>
   </files>
 </package>
