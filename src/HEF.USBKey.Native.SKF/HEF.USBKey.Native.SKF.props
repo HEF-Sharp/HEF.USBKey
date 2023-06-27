@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<USBKeySKFNativeDlls>$(MSBuildThisFileDirectory)\..\..\runtimes</USBKeySKFNativeDlls>
 	</PropertyGroup>
-    <ItemGroup Condition="$(TargetFrameworkVersion.StartsWith('v4')) Or $(TargetFramework.StartsWith('net4'))">
+    <ItemGroup Condition="'$(Platform)' == 'x86'">
 		<Content Include="$(USBKeySKFNativeDlls)\win-x86\net45\ePass3003\*.*">
 			<Link>ePass3003\%(FileName)%(Extension)</Link>
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
