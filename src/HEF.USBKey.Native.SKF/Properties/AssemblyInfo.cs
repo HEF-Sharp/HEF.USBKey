@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("HEF.USBKey.Services.SKF")]
-[assembly: AssemblyDescription("USBKey Services with Chinese Standard SKF Interface")]
+[assembly: AssemblyTitle("HEF.USBKey.Native.SKF")]
+[assembly: AssemblyDescription("USBKey Native Chinese Standard SKF dlls provide by Manufacturer")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("GreatBillows")]
-[assembly: AssemblyProduct("HEF.USBKey.Services.SKF")]
+[assembly: AssemblyProduct("HEF.USBKey.Native.SKF")]
 [assembly: AssemblyCopyright("Copyright © GreatBillows 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("00453ca7-e30d-42f8-a36e-fbb1439c2308")]
+[assembly: Guid("e77dd656-6af1-4250-b80d-40ba2f1794be")]
 
 // 程序集的版本信息由下列四个值组成: 
 //

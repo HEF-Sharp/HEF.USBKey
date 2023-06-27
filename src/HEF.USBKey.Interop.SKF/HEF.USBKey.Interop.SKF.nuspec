@@ -11,5 +11,8 @@
     <repository type="git" url="https://github.com/HEF-Sharp/HEF.USBKey.git" />
     <description>$description$</description>
     <copyright>$copyright$</copyright>
+    <dependencies>
+      <dependency id="HEF.USBKey.Native.SKF" version="1.0.2" />
+    </dependencies>
   </metadata>
 </package>

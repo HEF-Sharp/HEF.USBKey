@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HEF.USBKey.Interop.SKF", "s
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HEF.USBKey.Services.SKF", "src\HEF.USBKey.Services.SKF\HEF.USBKey.Services.SKF.csproj", "{00453CA7-E30D-42F8-A36E-FBB1439C2308}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HEF.USBKey.Native.SKF", "src\HEF.USBKey.Native.SKF\HEF.USBKey.Native.SKF.csproj", "{E77DD656-6AF1-4250-B80D-40BA2F1794BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{00453CA7-E30D-42F8-A36E-FBB1439C2308}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00453CA7-E30D-42F8-A36E-FBB1439C2308}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00453CA7-E30D-42F8-A36E-FBB1439C2308}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E77DD656-6AF1-4250-B80D-40BA2F1794BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E77DD656-6AF1-4250-B80D-40BA2F1794BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E77DD656-6AF1-4250-B80D-40BA2F1794BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E77DD656-6AF1-4250-B80D-40BA2F1794BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
