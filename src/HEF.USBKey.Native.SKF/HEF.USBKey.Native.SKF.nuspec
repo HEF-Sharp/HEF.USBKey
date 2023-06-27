@@ -12,4 +12,8 @@
     <description>USBKey Native Chinese Standard SKF dlls provide by Manufacturer.</description>        
     <copyright>Copyright © GreatBillows 2023</copyright>
   </metadata>
+  <files>
+      <file src="Assets\\runtimes\\win-x86\\net45\\**" target="runtimes\\win-x86\\net45\\" />
+      <file src="HEF.USBKey.Native.SKF.props" target="build\\net45"/>
+  </files>
 </package>
