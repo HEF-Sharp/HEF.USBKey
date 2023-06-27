@@ -44,25 +44,5 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="Assets\runtimes\win-x86\net45\ePass3003\ZJCAePassP11v211.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\ePass3003\ZJCAePassP11v211_s.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\HaiTai20066\CheckFileVer20066.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\HaiTai20066\GEA20066.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\HaiTai20066\GEC20066.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\HaiTai20066\GECSP20066.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\HaiTai20066\GER20066.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\HaiTai20066\HaitaiG20066.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\HaiTai20066\HaitaiW20066.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\HaiTai20066\HKCommand20066.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\HaiTai20066\HtPkcs1120066.dll" />
-    <Content Include="Assets\runtimes\win-x86\net45\HaiTai20066\SKFAPI20066.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\runtimes\win-x86\net45\ePass3003\ZJCAePassP11v211.sig" />
-    <None Include="Assets\runtimes\win-x86\net45\HaiTai20066\GECFG20066.dat" />
-    <None Include="Assets\runtimes\win-x86\net45\HaiTai20066\GECN20066.dat" />
-    <None Include="Assets\runtimes\win-x86\net45\HaiTai20066\GEEN20066.dat" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
