@@ -1,0 +1,15 @@
+﻿<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<USBKeySKFNativeDlls>$(MSBuildThisFileDirectory)..\..\runtimes</USBKeySKFNativeDlls>
+	</PropertyGroup>
+    <ItemGroup Condition="$(TargetFrameworkVersion.StartsWith('v4')) Or $(TargetFramework.StartsWith('net4'))">
+		<Content Include="$(USBKeySKFNativeDlls)\win-x86\native\ePass3003\*.*">
+			<Link>ePass3003\%(FileName)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="$(USBKeySKFNativeDlls)\win-x86\native\HaiTai20066\*.*">
+			<Link>HaiTai20066\%(FileName)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+</Project>
