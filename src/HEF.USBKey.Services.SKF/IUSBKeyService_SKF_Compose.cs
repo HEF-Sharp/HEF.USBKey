@@ -38,7 +38,12 @@ namespace HEF.USBKey.Services.SKF
         /// <summary>
         /// 开始监测设备事件
         /// </summary>
-        void StartMonitorDeviceEvent(params IUSBKey_SKF_Handler_DeviceEvent[] usbKeyDeviceEventHandlers);
+        void StartMonitorDeviceEvent();
+
+        /// <summary>
+        /// 附加设备事件Handlers
+        /// </summary>
+        void AttachDeviceEventHandlers(params IUSBKey_SKF_Handler_DeviceEvent[] usbKeyDeviceEventHandlers);
 
         /// <summary>
         /// 取消监测设备事件

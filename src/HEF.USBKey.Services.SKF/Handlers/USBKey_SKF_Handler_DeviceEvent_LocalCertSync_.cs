@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
@@ -25,9 +26,9 @@ namespace HEF.USBKey.Services.SKF
         {
             var deviceCerts = usbKeySKFService.ExportDeviceCertificates(deviceInOutEvent.DeviceName);
             
-            var deviceCertCollection = BuildDeviceCertCollection(deviceCerts.ToArray());
+            var deviceX509Certs = BuildDeviceX509Certs(deviceCerts.ToArray());
 
-            USBKeyLocalCertStoreService.AddDeviceCertsToLocalCurrentUser(deviceInOutEvent.ProviderName, deviceInOutEvent.DeviceName, deviceCertCollection);
+            USBKeyLocalCertStoreService.AddDeviceCertsToLocalCurrentUser(deviceInOutEvent.ProviderName, deviceInOutEvent.DeviceName, deviceX509Certs.ToArray());
         }
 
         protected void Handle_DevicePullOutEvent(SKF_DeviceInOutEvent deviceInOutEvent)
@@ -35,18 +36,18 @@ namespace HEF.USBKey.Services.SKF
             USBKeyLocalCertStoreService.RemoveDeviceCertsFromLocalCurrentUser(deviceInOutEvent.ProviderName, deviceInOutEvent.DeviceName);
         }
 
-        #region LocalCertSync
-        protected X509Certificate2Collection BuildDeviceCertCollection(params SKF_Certificate[] deviceCerts)
+        #region Helper Functions
+        protected static IEnumerable<SKF_Certificate_X509> BuildDeviceX509Certs(params SKF_Certificate[] deviceCerts)
         {
-            var deviceCertCollection = new X509Certificate2Collection();
-
             foreach (var deviceCert in deviceCerts)
             {
-                var x509Cert = new X509Certificate2(deviceCert.CertBytes);
-                deviceCertCollection.Add(x509Cert);
+                yield return new SKF_Certificate_X509
+                {
+                    ForSign = deviceCert.ForSign,
+                    CertBytes = deviceCert.CertBytes,
+                    X509Cert = new X509Certificate2(deviceCert.CertBytes)
+                };
             }
-
-            return deviceCertCollection;
         }
         #endregion
     }

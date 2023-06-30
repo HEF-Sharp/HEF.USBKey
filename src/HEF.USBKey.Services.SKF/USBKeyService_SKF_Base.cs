@@ -156,7 +156,7 @@ namespace HEF.USBKey.Services.SKF
             if (_monitorDeviceEventTask != null && _monitorDeviceEventTask.Status == TaskStatus.Running)
                 return;   //监听设备事件 任务正在运行 则不做处理
 
-            _monitorDeviceEventTask = Task.Run(() => ProcessingWaitDeviceEvent(deviceEventAction, cancellationToken));
+            _monitorDeviceEventTask = Task.Factory.StartNew(() => ProcessingWaitDeviceEvent(deviceEventAction, cancellationToken), TaskCreationOptions.LongRunning);
             cancellationToken.Register(CancelWaitDeviceEvent);
         }
 
