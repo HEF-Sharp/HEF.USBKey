@@ -23,31 +23,37 @@ namespace HEF.USBKey.Services.SKF
             var enumDeviceResult = Provider.SKF_EnumDevice(true);
             foreach (var deviceName in enumDeviceResult.Data ?? Enumerable.Empty<string>())
             {
-                using var deviceConnection = Provider.ACT_DeviceConnection(deviceName);
+                var presentDevice = GetPresentDevice(deviceName);
 
-                if (!deviceConnection.Connected)
-                    continue;
-                   
-                var infoResult = Provider.SKF_GetDeviceInfo(deviceConnection.HDevice);
-                if (infoResult.IsSuccess())
-                {
-                    var deviceInfo = infoResult.Data;
-
-                    var presentDevice = new SKF_PresentDevice
-                    {
-                        ProviderName = Provider.ProviderName,
-                        DeviceName = deviceName,
-                        Version = FormatDeviceVersion(deviceInfo.Version),
-                        Manufacturer = deviceInfo.Manufacturer.ToASCIIString(),
-                        Issuer = deviceInfo.Issuer.ToASCIIString(),
-                        SerialNumber = deviceInfo.SerialNumber.ToASCIIString(),
-                        HWVersion = FormatDeviceVersion(deviceInfo.HWVersion),
-                        FirmwareVersion = FormatDeviceVersion(deviceInfo.FirmwareVersion)
-                    };
-
+                if (presentDevice != null)
                     yield return presentDevice;
-                }
             }
+        }
+
+        public SKF_PresentDevice GetPresentDevice(string deviceName)
+        {
+            using var deviceConnection = Provider.ACT_DeviceConnection(deviceName);
+
+            if (!deviceConnection.Connected)
+                return null;
+
+            var infoResult = Provider.SKF_GetDeviceInfo(deviceConnection.HDevice);
+            if (!infoResult.IsSuccess())
+                return null;
+            
+            var deviceInfo = infoResult.Data;
+
+            return new SKF_PresentDevice
+            {
+                ProviderName = Provider.ProviderName,
+                DeviceName = deviceName,
+                Version = FormatDeviceVersion(deviceInfo.Version),
+                Manufacturer = deviceInfo.Manufacturer.ToASCIIString(),
+                Issuer = deviceInfo.Issuer.ToASCIIString(),
+                SerialNumber = deviceInfo.SerialNumber.ToASCIIString(),
+                HWVersion = FormatDeviceVersion(deviceInfo.HWVersion),
+                FirmwareVersion = FormatDeviceVersion(deviceInfo.FirmwareVersion)
+            };
         }
 
         public IEnumerable<SKF_Certificate> ExportDeviceCertificates(string deviceName)

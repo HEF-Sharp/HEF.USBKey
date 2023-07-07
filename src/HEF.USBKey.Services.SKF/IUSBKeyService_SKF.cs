@@ -15,6 +15,11 @@ namespace HEF.USBKey.Services.SKF
         IEnumerable<SKF_PresentDevice> GetPresentDevices();
 
         /// <summary>
+        /// 获取插入设备信息
+        /// </summary>
+        SKF_PresentDevice GetPresentDevice(string deviceName);
+
+        /// <summary>
         /// 导出设备所有证书
         /// </summary>
         IEnumerable<SKF_Certificate> ExportDeviceCertificates(string deviceName);
