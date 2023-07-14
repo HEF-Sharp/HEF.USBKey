@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 
@@ -74,7 +75,7 @@ namespace HEF.USBKey.Services.SKF
                 {
                     ForSign = deviceCert.ForSign,
                     CertBytes = deviceCert.CertBytes,
-                    X509Cert = new X509Certificate2(deviceCert.CertBytes)
+                    X509Cert = new X509Certificate2(deviceCert.CertBytes, (SecureString)null, X509KeyStorageFlags.UserKeySet)
                 };
             }
         }
