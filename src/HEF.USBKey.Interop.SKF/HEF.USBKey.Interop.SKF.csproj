@@ -60,6 +60,5 @@
     <Compile Include="IUSBKeyProvider_SKF.cs" />
     <Compile Include="USBKeyProvider_SKF_Base.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
