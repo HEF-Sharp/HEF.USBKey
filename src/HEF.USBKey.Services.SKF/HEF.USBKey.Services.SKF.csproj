@@ -47,7 +47,9 @@
     <Compile Include="Actions\USBKey_SKF_ACT_DeviceConnection.cs" />
     <Compile Include="ePass3003\USBKeyService_SKF_ePass3003.cs" />
     <Compile Include="Extensions\USBKeySKFActionsExtensions.cs" />
-    <Compile Include="HaiTai20066\USBKeyService_SKF_HaiTai20066.cs" />
+    <Compile Include="HaiTai\USBKeyService_SKF_HaiTai20066.cs" />
+    <Compile Include="HaiTai\USBKeyService_SKF_HaiTai20240.cs" />
+    <Compile Include="HaiTai\USBKeyService_SKF_HaiTai30098.cs" />
     <Compile Include="Handlers\IUSBKey_SKF_Handler_DeviceEvent.cs" />
     <Compile Include="Handlers\USBKey_SKF_Handler_DeviceEvent_LocalCertSync_.cs" />
     <Compile Include="IUSBKeyService_SKF.cs" />

@@ -44,8 +44,12 @@
     <Compile Include="ePass3003\Native_SKF_ePass3003.cs" />
     <Compile Include="ePass3003\USBKeyProvider_SKF_ePass3003.cs" />
     <Compile Include="Extensions\TypeConvertExtensions.cs" />
-    <Compile Include="HaiTai20066\Native_SKF_HaiTai20066.cs" />
-    <Compile Include="HaiTai20066\USBKeyProvider_SKF_HaiTai20066.cs" />
+    <Compile Include="HaiTai\HaiTai20066\Native_SKF_HaiTai20066.cs" />
+    <Compile Include="HaiTai\HaiTai20066\USBKeyProvider_SKF_HaiTai20066.cs" />
+    <Compile Include="HaiTai\HaiTai20240\Native_SKF_HaiTai20240.cs" />
+    <Compile Include="HaiTai\HaiTai20240\USBKeyProvider_SKF_HaiTai20240.cs" />
+    <Compile Include="HaiTai\HaiTai30098\Native_SKF_HaiTai30098.cs" />
+    <Compile Include="HaiTai\HaiTai30098\USBKeyProvider_SKF_HaiTai30098.cs" />
     <Compile Include="Models\SKF_DeviceEvent.cs" />
     <Compile Include="Models\SKF_DeviceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,5 +60,6 @@
     <Compile Include="IUSBKeyProvider_SKF.cs" />
     <Compile Include="USBKeyProvider_SKF_Base.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
