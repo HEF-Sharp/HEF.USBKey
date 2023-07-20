@@ -41,18 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ePass3003\Native_SKF_ePass3003.cs" />
-    <Compile Include="ePass3003\USBKeyProvider_SKF_ePass3003.cs" />
+    <Compile Include="Providers\ePass3000GM\Native_SKF_ePass3000GM.cs" />
+    <Compile Include="Providers\ePass3000GM\USBKeyProvider_SKF_ePass3000GM.cs" />
+    <Compile Include="Providers\ePass3003\Native_SKF_ePass3003.cs" />
+    <Compile Include="Providers\ePass3003\USBKeyProvider_SKF_ePass3003.cs" />
     <Compile Include="Extensions\TypeConvertExtensions.cs" />
-    <Compile Include="HaiTai\HaiTai20066\Native_SKF_HaiTai20066.cs" />
-    <Compile Include="HaiTai\HaiTai20066\USBKeyProvider_SKF_HaiTai20066.cs" />
-    <Compile Include="HaiTai\HaiTai20240\Native_SKF_HaiTai20240.cs" />
-    <Compile Include="HaiTai\HaiTai20240\USBKeyProvider_SKF_HaiTai20240.cs" />
-    <Compile Include="HaiTai\HaiTai30098\Native_SKF_HaiTai30098.cs" />
-    <Compile Include="HaiTai\HaiTai30098\USBKeyProvider_SKF_HaiTai30098.cs" />
+    <Compile Include="Providers\GX\Native_SKF_GX.cs" />
+    <Compile Include="Providers\GX\USBKeyProvider_SKF_GX.cs" />
+    <Compile Include="Providers\HaiTai\HaiTai20066\Native_SKF_HaiTai20066.cs" />
+    <Compile Include="Providers\HaiTai\HaiTai20066\USBKeyProvider_SKF_HaiTai20066.cs" />
+    <Compile Include="Providers\HaiTai\HaiTai20240\Native_SKF_HaiTai20240.cs" />
+    <Compile Include="Providers\HaiTai\HaiTai20240\USBKeyProvider_SKF_HaiTai20240.cs" />
+    <Compile Include="Providers\HaiTai\HaiTai30098\Native_SKF_HaiTai30098.cs" />
+    <Compile Include="Providers\HaiTai\HaiTai30098\USBKeyProvider_SKF_HaiTai30098.cs" />
     <Compile Include="Models\SKF_DeviceEvent.cs" />
     <Compile Include="Models\SKF_DeviceInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\LongMai3000GM\Native_SKF_LongMai3000GM.cs" />
+    <Compile Include="Providers\LongMai3000GM\USBKeyProvider_SKF_LongMai3000GM.cs" />
     <Compile Include="Result\SKFResult.cs" />
     <Compile Include="Result\SKFResultConstants.cs" />
     <Compile Include="Result\SKFResultExtensions.cs" />
@@ -60,5 +66,6 @@
     <Compile Include="IUSBKeyProvider_SKF.cs" />
     <Compile Include="USBKeyProvider_SKF_Base.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

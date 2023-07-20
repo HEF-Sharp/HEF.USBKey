@@ -14,7 +14,11 @@ namespace HEF.USBKey.Services.SKF
         private IList<SKF_PresentDevice> _prevPresentDevices = new List<SKF_PresentDevice>();
 
         public USBKeyService_SKF_ePass3003()
-            : base(new USBKeyProvider_SKF_ePass3003())
+            : this(new USBKeyProvider_SKF_ePass3003())
+        { }
+
+        protected USBKeyService_SKF_ePass3003(IUSBKeyProvider_SKF usbKeyProvider_SKF)
+            : base(usbKeyProvider_SKF)
         { }
 
         #region MonitorDeviceEvent

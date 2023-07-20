@@ -45,11 +45,13 @@
     <Compile Include="Actions\USBKey_SKF_ACT_ApplicationConnection.cs" />
     <Compile Include="Actions\USBKey_SKF_ACT_ContainerConnection.cs" />
     <Compile Include="Actions\USBKey_SKF_ACT_DeviceConnection.cs" />
-    <Compile Include="ePass3003\USBKeyService_SKF_ePass3003.cs" />
+    <Compile Include="Services\ePass3000GM\USBKeyService_SKF_ePass3000GM.cs" />
+    <Compile Include="Services\ePass3003\USBKeyService_SKF_ePass3003.cs" />
     <Compile Include="Extensions\USBKeySKFActionsExtensions.cs" />
-    <Compile Include="HaiTai\USBKeyService_SKF_HaiTai20066.cs" />
-    <Compile Include="HaiTai\USBKeyService_SKF_HaiTai20240.cs" />
-    <Compile Include="HaiTai\USBKeyService_SKF_HaiTai30098.cs" />
+    <Compile Include="Services\GX\USBKeyService_SKF_GX.cs" />
+    <Compile Include="Services\HaiTai\USBKeyService_SKF_HaiTai20066.cs" />
+    <Compile Include="Services\HaiTai\USBKeyService_SKF_HaiTai20240.cs" />
+    <Compile Include="Services\HaiTai\USBKeyService_SKF_HaiTai30098.cs" />
     <Compile Include="Handlers\IUSBKey_SKF_Handler_DeviceEvent.cs" />
     <Compile Include="Handlers\USBKey_SKF_Handler_DeviceEvent_LocalCertSync_.cs" />
     <Compile Include="IUSBKeyService_SKF.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="Models\SKF_PresentDevice.cs" />
     <Compile Include="LocalCert\USBKeyService_SKF_LocalCertStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\LongMai3000GM\USBKeyService_SKF_LongMai3000GM.cs" />
     <Compile Include="USBKeyService_SKF_Base.cs" />
     <Compile Include="USBKeyService_SKF_Compose.cs" />
     <Compile Include="LocalCert\USBKeyService_SKF_LocalCertSync.cs" />
@@ -72,5 +75,6 @@
       <Name>HEF.USBKey.Interop.SKF</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
