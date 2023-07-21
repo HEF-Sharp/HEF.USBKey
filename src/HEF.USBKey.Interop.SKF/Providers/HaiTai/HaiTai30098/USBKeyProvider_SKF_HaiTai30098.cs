@@ -77,7 +77,7 @@ namespace HEF.USBKey.Interop.SKF
 
         protected override uint Native_SKF_CancelWaitForDevEvent()
         {
-            return Native_SKF_HaiTai30098.SKF_CancelWaitForDevEvent();
+            throw new NotImplementedException();
         }
 
         protected override uint Native_SKF_ChangePIN(IntPtr hApplication, uint ulPINType, string szOldPin, string szNewPin, out uint pulRetryCount)

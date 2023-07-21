@@ -45,8 +45,8 @@ namespace HEF.USBKey.Interop.SKF
         [DllImport(@"\HaiTai30098\SKFAPI30098.dll", CallingConvention = CallingConvention.StdCall)]
         internal static extern uint SKF_WaitForDevEvent(StringBuilder szDevName, ref uint pulDevNameLen, out uint pulEvent);
 
-        [DllImport(@"\HaiTai30098\SKFAPI30098.dll", CallingConvention = CallingConvention.StdCall)]
-        internal static extern uint SKF_CancelWaitForDevEvent();
+        //[DllImport(@"\HaiTai30098\SKFAPI30098.dll", CallingConvention = CallingConvention.StdCall)]
+        //internal static extern uint SKF_CancelWaitForDevEvent();
 
         [DllImport(@"\HaiTai30098\SKFAPI30098.dll", CallingConvention = CallingConvention.StdCall)]
         internal static extern uint SKF_ChangePIN(IntPtr hApplication, uint ulPINType, string szOldPin, string szNewPin, out uint pulRetryCount);
