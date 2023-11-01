@@ -1,7 +1,9 @@
 ﻿using Net.Pkcs11Interop.Common;
 using Net.Pkcs11Interop.HighLevelAPI;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace HEF.USBKey.Interop.Pkcs11
 {
@@ -25,6 +27,28 @@ namespace HEF.USBKey.Interop.Pkcs11
         protected Pkcs11InteropFactories InteropFactories { get; }
 
         protected IPkcs11Library Pkcs11Library { get; }
+
+        public ILibraryInfo GetLibraryInfo() => Pkcs11Library.GetInfo();
+
+        public IEnumerable<ISlot> GetSlotList(bool present)
+        {
+            var slotsType = present ? SlotsType.WithTokenPresent : SlotsType.WithOrWithoutTokenPresent;
+
+            foreach(var slot in Pkcs11Library.GetSlotList(slotsType))
+                yield return slot;
+        }
+
+        public ISlot GetSlotById(ulong slotId)
+        {
+            return GetSlotList(false).SingleOrDefault(slot => slot.SlotId == slotId);
+        }
+
+        public bool WaitForSlotEvent(out ulong slotId)
+        {
+            Pkcs11Library.WaitForSlotEvent(WaitType.Blocking, out var eventOccured, out slotId);
+
+            return eventOccured;
+        }
 
         public void Dispose()
         {

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HEF.USBKey.Services.SKF", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HEF.USBKey.Interop.Pkcs11", "src\HEF.USBKey.Interop.Pkcs11\HEF.USBKey.Interop.Pkcs11.csproj", "{3317B23B-3877-46FD-BF54-3BC7D67EE4FA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HEF.USBKey.Services.Pkcs11", "src\HEF.USBKey.Services.Pkcs11\HEF.USBKey.Services.Pkcs11.csproj", "{15E7A100-5C5E-451C-886C-BC9FA83C2297}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{3317B23B-3877-46FD-BF54-3BC7D67EE4FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3317B23B-3877-46FD-BF54-3BC7D67EE4FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3317B23B-3877-46FD-BF54-3BC7D67EE4FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15E7A100-5C5E-451C-886C-BC9FA83C2297}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15E7A100-5C5E-451C-886C-BC9FA83C2297}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15E7A100-5C5E-451C-886C-BC9FA83C2297}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15E7A100-5C5E-451C-886C-BC9FA83C2297}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Net.Pkcs11Interop.HighLevelAPI;
+using System;
+using System.Collections.Generic;
 
 namespace HEF.USBKey.Interop.Pkcs11
 {
@@ -7,5 +9,13 @@ namespace HEF.USBKey.Interop.Pkcs11
         string ProviderName { get; }
 
         string CspProviderName { get; }
+
+        ILibraryInfo GetLibraryInfo();
+
+        IEnumerable<ISlot> GetSlotList(bool present);
+
+        ISlot GetSlotById(ulong slotId);
+
+        bool WaitForSlotEvent(out ulong slotId);
     }
 }
