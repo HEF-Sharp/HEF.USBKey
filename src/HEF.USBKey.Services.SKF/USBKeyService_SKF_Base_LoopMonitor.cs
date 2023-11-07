@@ -1,4 +1,5 @@
-﻿using HEF.USBKey.Interop.SKF;
+﻿using HEF.USBKey.Common;
+using HEF.USBKey.Interop.SKF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -55,7 +56,7 @@ namespace HEF.USBKey.Services.SKF
                 {
                     ProviderName = Provider.ProviderName,
                     DeviceName = pullOutDeviceName,
-                    EventType = (int)SKF_DeviceEventTypes.PullOut
+                    EventType = (int)DeviceEventTypes.PullOut
                 };
             }
 
@@ -65,7 +66,7 @@ namespace HEF.USBKey.Services.SKF
                 {
                     ProviderName = Provider.ProviderName,
                     DeviceName = plugInDeviceName,
-                    EventType = (int)SKF_DeviceEventTypes.PlugIn
+                    EventType = (int)DeviceEventTypes.PlugIn
                 };
             }
         }

@@ -71,6 +71,10 @@
     <Compile Include="LocalCert\USBKeyService_SKF_LocalCertSync.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HEF.USBKey.Common\HEF.USBKey.Common.csproj">
+      <Project>{2d9efe39-5a90-4a6e-85a7-4103fcd86281}</Project>
+      <Name>HEF.USBKey.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HEF.USBKey.Interop.SKF\HEF.USBKey.Interop.SKF.csproj">
       <Project>{004aa304-67a7-42ef-b90b-0b464015b947}</Project>
       <Name>HEF.USBKey.Interop.SKF</Name>

@@ -16,6 +16,6 @@ namespace HEF.USBKey.Interop.Pkcs11
 
         ISlot GetSlotById(ulong slotId);
 
-        bool WaitForSlotEvent(out ulong slotId);
+        bool WaitForSlotEvent(out ISlot slot);
     }
 }

@@ -1,4 +1,5 @@
-﻿using HEF.USBKey.Interop.SKF;
+﻿using HEF.USBKey.Common;
+using HEF.USBKey.Interop.SKF;
 
 namespace HEF.USBKey.Services.SKF
 {
@@ -9,8 +10,16 @@ namespace HEF.USBKey.Services.SKF
         /// </summary>
         public string ProviderName { get; set; }
 
-        public bool IsPlugIn => EventType == (int)SKF_DeviceEventTypes.PlugIn;
+        public DeviceEventTypes InOutEventType => FormatDeviceEventType(EventType);
 
-        public bool IsPullOut => EventType == (int)SKF_DeviceEventTypes.PullOut;
+        private static DeviceEventTypes FormatDeviceEventType(int eventType)
+        {
+            return eventType switch
+            {
+                (int)DeviceEventTypes.PlugIn => DeviceEventTypes.PlugIn,
+                (int)DeviceEventTypes.PullOut => DeviceEventTypes.PullOut,
+                _ => DeviceEventTypes.None,
+            };
+        }
     }
 }

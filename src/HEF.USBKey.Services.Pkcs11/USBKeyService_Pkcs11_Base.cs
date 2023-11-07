@@ -4,11 +4,16 @@ using Net.Pkcs11Interop.HighLevelAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Threading;
+using HEF.USBKey.Common;
 
 namespace HEF.USBKey.Services.Pkcs11
 {
     public abstract class USBKeyService_Pkcs11_Base
     {
+        private Task _monitorSlotEventTask;
+
         internal USBKeyService_Pkcs11_Base(IUSBKeyProvider_Pkcs11 usbKeyProvider_Pkcs11)
         {
             Provider = usbKeyProvider_Pkcs11 ?? throw new ArgumentNullException(nameof(usbKeyProvider_Pkcs11));
@@ -51,7 +56,9 @@ namespace HEF.USBKey.Services.Pkcs11
                         bool ckaSign = objectAttributes[2].CannotBeRead ? false : objectAttributes[2].GetValueAsBool();
                         byte[] ckaValue = objectAttributes[3].GetValueAsByteArray();
 
-                        ckaId = ckaId.Substring(0, ckaId.Length - 2);  //截断末尾 #序号
+                        var numberIndex = ckaId.IndexOf('#');
+                        if (numberIndex >= 0)
+                            ckaId = ckaId.Substring(0, numberIndex);  //截断末尾 #序号
 
                         yield return new Pkcs11_Certificate
                         {
@@ -64,5 +71,42 @@ namespace HEF.USBKey.Services.Pkcs11
                 }
             }
         }
+
+        public void StartMonitorSlotEvent(Action<Pkcs11_SlotInOutEvent> slotEventAction, CancellationToken cancellationToken)
+        {
+            if (_monitorSlotEventTask != null && _monitorSlotEventTask.Status == TaskStatus.Running)
+                return;   //监听Slot事件 任务正在运行 则不做处理
+
+            _monitorSlotEventTask = Task.Factory.StartNew(() => ProcessingWaitSlotEvent(slotEventAction, cancellationToken), TaskCreationOptions.LongRunning);           
+        }
+
+        #region MonitorSlotEvent
+        protected virtual Task ProcessingWaitSlotEvent(Action<Pkcs11_SlotInOutEvent> slotEventAction, CancellationToken cancellationToken)
+        {
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                var result = Provider.WaitForSlotEvent(out var slot);
+
+                if (result)
+                {
+                    //先调用GetSlotInfo可以起到刷新的作用，保证后面GetPresentSlot能获取到 实际存在设备插入的Slot
+                    var slotInfo = slot.GetSlotInfo();
+
+                    var matchPresentSlot = GetPresentSlotById(slot.SlotId);
+
+                    var slotEvent = new Pkcs11_SlotInOutEvent
+                    {
+                        ProviderName = Provider.ProviderName,
+                        SlotId = slot.SlotId,
+                        InOutEventType = matchPresentSlot != null ? DeviceEventTypes.PlugIn : DeviceEventTypes.PullOut
+                    };
+
+                    slotEventAction?.Invoke(slotEvent);
+                }
+            }
+
+            return Task.FromResult(0);
+        }
+        #endregion
     }
 }

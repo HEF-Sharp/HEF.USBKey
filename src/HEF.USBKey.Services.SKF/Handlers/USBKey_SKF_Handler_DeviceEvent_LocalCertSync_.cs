@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HEF.USBKey.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security;
@@ -17,9 +18,9 @@ namespace HEF.USBKey.Services.SKF
 
         public void Handle_DeviceInOutEvent(SKF_DeviceInOutEvent deviceInOutEvent, IUSBKeyService_SKF usbKeySKFService)
         {
-            if (deviceInOutEvent.IsPlugIn)
+            if (deviceInOutEvent.InOutEventType == DeviceEventTypes.PlugIn)
                 Handle_DevicePlugInEvent(deviceInOutEvent, usbKeySKFService);
-            else if (deviceInOutEvent.IsPullOut)
+            else if (deviceInOutEvent.InOutEventType == DeviceEventTypes.PullOut)
                 Handle_DevicePullOutEvent(deviceInOutEvent);
         }
 

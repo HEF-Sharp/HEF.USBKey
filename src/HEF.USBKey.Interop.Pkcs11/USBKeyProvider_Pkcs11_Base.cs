@@ -38,14 +38,14 @@ namespace HEF.USBKey.Interop.Pkcs11
                 yield return slot;
         }
 
-        public ISlot GetSlotById(ulong slotId)
+        public ISlot GetSlotById(ulong slotId)                          
         {
             return GetSlotList(false).SingleOrDefault(slot => slot.SlotId == slotId);
         }
 
-        public bool WaitForSlotEvent(out ulong slotId)
+        public bool WaitForSlotEvent(out ISlot slot)
         {
-            Pkcs11Library.WaitForSlotEvent(WaitType.Blocking, out var eventOccured, out slotId);
+            Pkcs11Library.WaitForSlotEvent(WaitType.Blocking, out var eventOccured, out slot);
 
             return eventOccured;
         }

@@ -12,17 +12,4 @@
         /// </summary>
         public int EventType { get; set; }
     }
-
-    public enum SKF_DeviceEventTypes
-    {
-        None = 0,
-        /// <summary>
-        /// 插入
-        /// </summary>
-        PlugIn = 1,
-        /// <summary>
-        /// 拔出
-        /// </summary>
-        PullOut = 2
-    }
 }
