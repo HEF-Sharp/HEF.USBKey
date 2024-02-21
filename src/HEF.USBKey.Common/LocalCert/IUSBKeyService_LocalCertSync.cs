@@ -1,6 +1,6 @@
-﻿namespace HEF.USBKey.Services.SKF
+﻿namespace HEF.USBKey.Common
 {
-    public interface IUSBKeyService_SKF_LocalCertSync
+    public interface IUSBKeyService_LocalCertSync
     {
         void StartSyncUSBKeysCertsToLocalCurrentUser();
 

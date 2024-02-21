@@ -3,26 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 
-namespace HEF.USBKey.Services.SKF
+namespace HEF.USBKey.Common
 {
-    public class USBKeyService_SKF_LocalCertStore : IUSBKeyService_SKF_LocalCertStore
+    public class USBKeyService_LocalCertStore : IUSBKeyService_LocalCertStore
     {
-        private readonly ConcurrentDictionary<string, SKF_Certificate_X509[]> _deviceX509CertsDict
-            = new ConcurrentDictionary<string, SKF_Certificate_X509[]>();
+        private readonly ConcurrentDictionary<string, USBKey_Certificate_X509[]> _deviceX509CertsDict
+            = new ConcurrentDictionary<string, USBKey_Certificate_X509[]>();
 
-        public IEnumerable<SKF_Certificate_X509> GetDeviceCertsFromCache(string providerName, string deviceName)
+        public IEnumerable<USBKey_Certificate_X509> GetDeviceCertsFromCache(string providerName, string deviceId)
         {
-            var deviceCertsCacheKey = FormatDeviceCertsCacheKey(providerName, deviceName);
+            var deviceCertsCacheKey = FormatDeviceCertsCacheKey(providerName, deviceId);
 
             if (_deviceX509CertsDict.TryGetValue(deviceCertsCacheKey, out var deviceX509Certs))
             {
                 return deviceX509Certs;
             }
 
-            return Enumerable.Empty<SKF_Certificate_X509>();
+            return Enumerable.Empty<USBKey_Certificate_X509>();
         }
 
-        public void AddDeviceCertsToLocalCurrentUser(string providerName, string deviceName, params SKF_Certificate_X509[] deviceX509Certs)
+        public void AddDeviceCertsToLocalCurrentUser(string providerName, string deviceId, params USBKey_Certificate_X509[] deviceX509Certs)
         {
             var x509Store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
             x509Store.Open(OpenFlags.ReadWrite);
@@ -37,7 +37,7 @@ namespace HEF.USBKey.Services.SKF
                         x509Store.Add(deviceCert);
                 }
 
-                var deviceCertsCacheKey = FormatDeviceCertsCacheKey(providerName, deviceName);
+                var deviceCertsCacheKey = FormatDeviceCertsCacheKey(providerName, deviceId);
                 _deviceX509CertsDict.AddOrUpdate(deviceCertsCacheKey, deviceX509Certs, (key, certCollection) => deviceX509Certs);
             }
             finally
@@ -47,14 +47,14 @@ namespace HEF.USBKey.Services.SKF
         }
 
         #region RemoveDeviceCerts
-        public void RemoveDeviceCertsFromLocalCurrentUser(string providerName, string deviceName)
+        public void RemoveDeviceCertsFromLocalCurrentUser(string providerName, string deviceId)
         {
             var x509Store = new X509Store(StoreName.My, StoreLocation.CurrentUser);
             x509Store.Open(OpenFlags.ReadWrite);
 
             try
             {
-                var deviceCertsCacheKey = FormatDeviceCertsCacheKey(providerName, deviceName);
+                var deviceCertsCacheKey = FormatDeviceCertsCacheKey(providerName, deviceId);
 
                 RemoveDeviceCertsFromX509Store(deviceCertsCacheKey, x509Store);
             }
@@ -95,10 +95,10 @@ namespace HEF.USBKey.Services.SKF
         #endregion
 
         #region Helper Functions
-        protected static string FormatDeviceCertsCacheKey(string providerName, string deviceName)
-            => $"{providerName}--{deviceName}";
+        protected static string FormatDeviceCertsCacheKey(string providerName, string deviceId)
+            => $"{providerName}--{deviceId}";
 
-        protected static X509Certificate2Collection BuildDeviceCertCollection(params SKF_Certificate_X509[] deviceX509Certs)
+        protected static X509Certificate2Collection BuildDeviceCertCollection(params USBKey_Certificate_X509[] deviceX509Certs)
         {
             var deviceCertCollection = new X509Certificate2Collection();
 

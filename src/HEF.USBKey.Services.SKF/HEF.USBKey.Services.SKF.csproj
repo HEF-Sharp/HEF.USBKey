@@ -53,16 +53,13 @@
     <Compile Include="Services\HaiTai\USBKeyService_SKF_HaiTai20240.cs" />
     <Compile Include="Services\HaiTai\USBKeyService_SKF_HaiTai30098.cs" />
     <Compile Include="Handlers\IUSBKey_SKF_Handler_DeviceEvent.cs" />
-    <Compile Include="Handlers\USBKey_SKF_Handler_DeviceEvent_LocalCertSync_.cs" />
+    <Compile Include="Handlers\USBKey_SKF_Handler_DeviceEvent_LocalCertSync.cs" />
     <Compile Include="IUSBKeyService_SKF.cs" />
     <Compile Include="IUSBKeyService_SKF_Compose.cs" />
-    <Compile Include="LocalCert\IUSBKeyService_SKF_LocalCertStore.cs" />
-    <Compile Include="LocalCert\IUSBKeyService_SKF_LocalCertSync.cs" />
     <Compile Include="Models\SKF_DeviceInOutEvent.cs" />
     <Compile Include="Models\SKF_PINType.cs" />
     <Compile Include="Models\SKF_Certificate.cs" />
     <Compile Include="Models\SKF_PresentDevice.cs" />
-    <Compile Include="LocalCert\USBKeyService_SKF_LocalCertStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\LongMai3000GM\USBKeyService_SKF_LongMai3000GM.cs" />
     <Compile Include="USBKeyService_SKF_Base.cs" />

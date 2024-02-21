@@ -1,12 +1,13 @@
-﻿using System;
+﻿using HEF.USBKey.Common;
+using System;
 using System.Linq;
 
 namespace HEF.USBKey.Services.SKF
 {
-    public class USBKeyService_SKF_LocalCertSync : IUSBKeyService_SKF_LocalCertSync
+    public class USBKeyService_SKF_LocalCertSync : IUSBKeyService_LocalCertSync
     {
         public USBKeyService_SKF_LocalCertSync(IUSBKeyService_SKF_Compose composeUSBKeySKFService,
-            IUSBKeyService_SKF_LocalCertStore usbKeyLocalCertStoreService)
+            IUSBKeyService_LocalCertStore usbKeyLocalCertStoreService)
         {
             ComposeUSBKeySKFService = composeUSBKeySKFService ?? throw new ArgumentException(nameof(composeUSBKeySKFService));
 
@@ -17,7 +18,7 @@ namespace HEF.USBKey.Services.SKF
 
         protected IUSBKeyService_SKF_Compose ComposeUSBKeySKFService { get; }
 
-        protected IUSBKeyService_SKF_LocalCertStore USBKeyLocalCertStoreService { get; }
+        protected IUSBKeyService_LocalCertStore USBKeyLocalCertStoreService { get; }
 
         protected IUSBKey_SKF_Handler_DeviceEvent USBKeyLocalCertDeviceEventHandler { get; }
 

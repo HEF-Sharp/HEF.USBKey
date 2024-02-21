@@ -9,12 +9,12 @@ namespace HEF.USBKey.Services.SKF
 {
     public class USBKey_SKF_Handler_DeviceEvent_LocalCertSync : IUSBKey_SKF_Handler_DeviceEvent
     {
-        public USBKey_SKF_Handler_DeviceEvent_LocalCertSync(IUSBKeyService_SKF_LocalCertStore usbKeyLocalCertStoreService)
+        public USBKey_SKF_Handler_DeviceEvent_LocalCertSync(IUSBKeyService_LocalCertStore usbKeyLocalCertStoreService)
         {
             USBKeyLocalCertStoreService = usbKeyLocalCertStoreService ?? throw new ArgumentNullException(nameof(usbKeyLocalCertStoreService));
         }
 
-        protected IUSBKeyService_SKF_LocalCertStore USBKeyLocalCertStoreService { get; }
+        protected IUSBKeyService_LocalCertStore USBKeyLocalCertStoreService { get; }
 
         public void Handle_DeviceInOutEvent(SKF_DeviceInOutEvent deviceInOutEvent, IUSBKeyService_SKF usbKeySKFService)
         {

@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
+using System.Threading;
 
 namespace HEF.USBKey.Services.Pkcs11
 {
     public class USBKeyService_Pkcs11_Compose : IUSBKeyService_Pkcs11_Compose
     {
         private readonly IDictionary<string, IUSBKeyService_Pkcs11> _usbKeyPkcs11ServiceDict;
+
+        private CancellationTokenSource _monitorSlotEventCts;
+
+        private readonly List<IUSBKey_Pkcs11_Handler_SlotEvent> _usbKeyPkcs11SlotEventHandlers;
 
         #region Constructor
         public USBKeyService_Pkcs11_Compose(IEnumerable<IUSBKeyService_Pkcs11> usbKeyPkcs11Services)
@@ -18,7 +20,9 @@ namespace HEF.USBKey.Services.Pkcs11
                 throw new ArgumentNullException(nameof(usbKeyPkcs11Services));
 
             _usbKeyPkcs11ServiceDict = new Dictionary<string, IUSBKeyService_Pkcs11>();
-            InitUSBKeyPkcs11Services(usbKeyPkcs11Services);            
+            InitUSBKeyPkcs11Services(usbKeyPkcs11Services);
+
+            _usbKeyPkcs11SlotEventHandlers = new List<IUSBKey_Pkcs11_Handler_SlotEvent>();
         }
 
         private void InitUSBKeyPkcs11Services(IEnumerable<IUSBKeyService_Pkcs11> usbKeyPkcs11Services)
@@ -68,22 +72,37 @@ namespace HEF.USBKey.Services.Pkcs11
 
             foreach (var slotCert in slotCerts)
             {
-                var x509Cert = new X509Certificate2(slotCert.CertBytes, (SecureString)null, X509KeyStorageFlags.UserKeySet);
-
-                //Set hardware linked PrivateKey
-                CspParameters csp = new CspParameters(1, usbKeyPkcs11Service.Provider.CspProviderName, slotCert.Id);
-                csp.KeyNumber = slotCert.ForSign ? (int)KeyNumber.Signature : (int)KeyNumber.Exchange;
-                x509Cert.PrivateKey = new RSACryptoServiceProvider(csp);
-
-                yield return new Pkcs11_Certificate_X509
-                {
-                    Id = slotCert.Id,
-                    Label = slotCert.Label,
-                    ForSign = slotCert.ForSign,
-                    CertBytes = slotCert.CertBytes,
-                    X509Cert = x509Cert
-                };
+                yield return slotCert.BuildX509Certificate(usbKeyPkcs11Service);
             }
+        }
+
+        public void StartMonitorSlotEvent()
+        {
+            if (_monitorSlotEventCts != null && !_monitorSlotEventCts.IsCancellationRequested)
+                return;   //监听Slot事件 正在进行，则不做处理
+
+            _monitorSlotEventCts = new CancellationTokenSource();
+
+            var slotInOutEventHandle = BuildSlotInOutEventHandle();
+
+            foreach (var usbKeyPkcs11Service in _usbKeyPkcs11ServiceDict.Values)
+            {
+                usbKeyPkcs11Service.StartMonitorSlotEvent(slotInOutEventHandle, _monitorSlotEventCts.Token);
+            }
+        }
+
+        public void AttachSlotEventHandlers(params IUSBKey_Pkcs11_Handler_SlotEvent[] usbKeySlotEventHandlers)
+        {
+            if (usbKeySlotEventHandlers == null || !usbKeySlotEventHandlers.Any())
+                return;
+
+            _usbKeyPkcs11SlotEventHandlers.AddRange(usbKeySlotEventHandlers);
+        }
+
+        public void CancelMonitorSlotEvent()
+        {
+            if (_monitorSlotEventCts != null && !_monitorSlotEventCts.IsCancellationRequested)
+                _monitorSlotEventCts.Cancel();
         }
 
         #region Helper Functions
@@ -95,6 +114,21 @@ namespace HEF.USBKey.Services.Pkcs11
             }
 
             throw new InvalidOperationException("not found target provider name usbKey pkcs11 service");
+        }
+        #endregion
+
+        #region Handle SlotInOutEvent
+        protected Action<Pkcs11_SlotInOutEvent> BuildSlotInOutEventHandle()
+        {
+            return slotInOutEvent =>
+            {
+                var usbKeyPkcs11Service = GetMatchUSBKeyPkcs11Service(slotInOutEvent.ProviderName);
+
+                foreach (var usbKeySlotEventHandler in _usbKeyPkcs11SlotEventHandlers)
+                {
+                    usbKeySlotEventHandler.Handle_SlotInOutEvent(slotInOutEvent, usbKeyPkcs11Service);
+                }
+            };
         }
         #endregion
     }

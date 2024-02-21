@@ -1,12 +1,12 @@
-﻿using HEF.USBKey.Interop.Pkcs11;
+﻿using HEF.USBKey.Common;
+using HEF.USBKey.Interop.Pkcs11;
 using Net.Pkcs11Interop.Common;
 using Net.Pkcs11Interop.HighLevelAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Threading;
-using HEF.USBKey.Common;
+using System.Threading.Tasks;
 
 namespace HEF.USBKey.Services.Pkcs11
 {

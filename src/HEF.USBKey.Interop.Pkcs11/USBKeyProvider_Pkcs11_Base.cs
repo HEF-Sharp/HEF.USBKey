@@ -9,12 +9,16 @@ namespace HEF.USBKey.Interop.Pkcs11
 {
     public abstract class USBKeyProvider_Pkcs11_Base
     {
-        internal USBKeyProvider_Pkcs11_Base(string libraryRelativePath)
+        internal USBKeyProvider_Pkcs11_Base(string libraryRelativePath, string cspProvideName)
         {
             if (string.IsNullOrWhiteSpace(libraryRelativePath))
                 throw new ArgumentNullException(nameof(libraryRelativePath));
 
+            if (string.IsNullOrWhiteSpace(cspProvideName))
+                throw new ArgumentNullException(cspProvideName);
+
             Pkcs11LibraryPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, libraryRelativePath);
+            CspProviderName = cspProvideName;
 
             InteropFactories = new Pkcs11InteropFactories();
 
@@ -23,6 +27,8 @@ namespace HEF.USBKey.Interop.Pkcs11
         }
 
         protected string Pkcs11LibraryPath { get; }
+
+        public string CspProviderName { get; }
 
         protected Pkcs11InteropFactories InteropFactories { get; }
 
@@ -38,7 +44,7 @@ namespace HEF.USBKey.Interop.Pkcs11
                 yield return slot;
         }
 
-        public ISlot GetSlotById(ulong slotId)                          
+        public ISlot GetSlotById(ulong slotId)
         {
             return GetSlotList(false).SingleOrDefault(slot => slot.SlotId == slotId);
         }

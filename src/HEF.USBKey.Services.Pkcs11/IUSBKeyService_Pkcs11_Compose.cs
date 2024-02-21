@@ -7,5 +7,11 @@ namespace HEF.USBKey.Services.Pkcs11
         IEnumerable<Pkcs11_PresentSlot> GetPresentSlotList();
 
         IEnumerable<Pkcs11_Certificate_X509> ExportCertificates(string providerName, ulong slotId);
+        
+        void StartMonitorSlotEvent();
+
+        void AttachSlotEventHandlers(params IUSBKey_Pkcs11_Handler_SlotEvent[] usbKeySlotEventHandlers);
+
+        void CancelMonitorSlotEvent();
     }
 }
