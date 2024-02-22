@@ -76,6 +76,20 @@ namespace HEF.USBKey.Services.Pkcs11
             }
         }
 
+        public bool ChangeTokenPIN(string providerName, ulong slotId, string oldPin, string newPin)
+        {
+            var usbKeyPkcs11Service = GetMatchUSBKeyPkcs11Service(providerName);
+
+            return usbKeyPkcs11Service.ChangeTokenPIN(slotId, oldPin, newPin);
+        }
+
+        public bool VerifyTokenPIN(string providerName, ulong slotId, string pin)
+        {
+            var usbKeyPkcs11Service = GetMatchUSBKeyPkcs11Service(providerName);
+
+            return usbKeyPkcs11Service.VerifyTokenPIN(slotId, pin);
+        }
+
         public void StartMonitorSlotEvent()
         {
             if (_monitorSlotEventCts != null && !_monitorSlotEventCts.IsCancellationRequested)

@@ -72,6 +72,57 @@ namespace HEF.USBKey.Services.Pkcs11
             }
         }
 
+        public bool ChangeTokenPIN(ulong slotId, string oldPin, string newPin)
+        {
+            var slot = GetPresentSlotById(slotId);
+
+            if (slot is null)
+                return false;
+
+            using (var session = slot.OpenSession(SessionType.ReadWrite))
+            {
+                try
+                {
+                    session.SetPin(oldPin, newPin);
+                    return true;
+                }
+                catch (Pkcs11Exception)
+                {
+                    return false;
+                }
+            }
+        }
+
+        public bool VerifyTokenPIN(ulong slotId, string pin)
+        {
+            var slot = GetPresentSlotById(slotId);
+
+            if (slot is null)
+                return false;
+
+            using (var session = slot.OpenSession(SessionType.ReadOnly))
+            {
+                var loginSuccess = false;
+                try
+                {
+                    session.Login(CKU.CKU_USER, pin);
+                    loginSuccess = true;
+                }
+                catch (Pkcs11Exception ex)
+                {
+                    if (ex.RV == CKR.CKR_PIN_INCORRECT)
+                        return false;
+                }
+                finally
+                {
+                    if (loginSuccess)
+                        session.Logout();
+                }
+
+                return true;  //登录返回值不是 CKR_PIN_INCORRECT 均为校验通过
+            }
+        }
+
         public void StartMonitorSlotEvent(Action<Pkcs11_SlotInOutEvent> slotEventAction, CancellationToken cancellationToken)
         {
             if (_monitorSlotEventTask != null && _monitorSlotEventTask.Status == TaskStatus.Running)

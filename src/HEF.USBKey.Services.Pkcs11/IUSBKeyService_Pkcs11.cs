@@ -16,6 +16,10 @@ namespace HEF.USBKey.Services.Pkcs11
 
         IEnumerable<Pkcs11_Certificate> ExportCertificates(ulong slotId);
         
+        bool ChangeTokenPIN(ulong slotId, string oldPin, string newPin);
+
+        bool VerifyTokenPIN(ulong slotId, string pin);
+
         void StartMonitorSlotEvent(Action<Pkcs11_SlotInOutEvent> slotEventAction, CancellationToken cancellationToken);
     }
 }
