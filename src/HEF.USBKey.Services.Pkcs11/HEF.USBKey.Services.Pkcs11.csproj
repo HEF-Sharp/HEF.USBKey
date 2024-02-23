@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adapter\USBKeyService_Compose_Pkcs11Adapter.cs" />
     <Compile Include="Extensions\USBKeyPkcs11X509CertificateExtensions.cs" />
     <Compile Include="Handlers\IUSBKey_Pkcs11_Handler_SlotEvent.cs" />
     <Compile Include="Handlers\USBKey_Pkcs11_Handler_SlotEvent_LocalCertSync.cs" />

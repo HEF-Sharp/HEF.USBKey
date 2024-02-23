@@ -41,12 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Handlers\IUSBKey_Handler_DeviceEvent.cs" />
     <Compile Include="LocalCert\IUSBKeyService_LocalCertStore.cs" />
     <Compile Include="LocalCert\IUSBKeyService_LocalCertSync.cs" />
     <Compile Include="LocalCert\USBKeyService_LocalCertStore.cs" />
     <Compile Include="Models\DeviceEventTypes.cs" />
     <Compile Include="Models\USBKey_Certificate.cs" />
+    <Compile Include="Models\USBKey_DeviceInOutEvent.cs" />
+    <Compile Include="Models\USBKey_PresentDevice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\IUSBKeyService.cs" />
+    <Compile Include="Services\IUSBKeyService_Compose.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

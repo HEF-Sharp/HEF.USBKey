@@ -19,7 +19,7 @@
 
         /// <summary>
         /// 设备厂商
-        /// </summary>        
+        /// </summary>
         public string Manufacturer { get; set; }
 
         /// <summary>
