@@ -58,7 +58,14 @@ namespace HEF.USBKey.Services.SKF
 
         public void AttachDeviceEventHandlers(params IUSBKey_Handler_DeviceEvent[] usbKeyDeviceEventHandlers)
         {
-            throw new NotImplementedException();
+            var usbKeySKFDeviceEventHandlers = new List<IUSBKey_SKF_Handler_DeviceEvent>();
+
+            foreach (var deviceEventHandler in usbKeyDeviceEventHandlers)
+            {
+                usbKeySKFDeviceEventHandlers.Add(new USBKey_Handler_DeviceEvent_SKFConverter(deviceEventHandler));
+            }
+
+            ComposeUSBKeySKFService.AttachDeviceEventHandlers(usbKeySKFDeviceEventHandlers.ToArray());
         }
 
         public void CancelMonitorDeviceEvent()

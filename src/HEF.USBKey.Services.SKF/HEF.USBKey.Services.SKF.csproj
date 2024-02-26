@@ -45,6 +45,8 @@
     <Compile Include="Actions\USBKey_SKF_ACT_ApplicationConnection.cs" />
     <Compile Include="Actions\USBKey_SKF_ACT_ContainerConnection.cs" />
     <Compile Include="Actions\USBKey_SKF_ACT_DeviceConnection.cs" />
+    <Compile Include="Adapter\USBKeyService_SKFAdapter.cs" />
+    <Compile Include="Adapter\USBKey_Handler_DeviceEvent_SKFConverter.cs" />
     <Compile Include="Services\ePass3000GM\USBKeyService_SKF_ePass3000GM.cs" />
     <Compile Include="Services\ePass3003\USBKeyService_SKF_ePass3003.cs" />
     <Compile Include="Extensions\USBKeySKFActionsExtensions.cs" />

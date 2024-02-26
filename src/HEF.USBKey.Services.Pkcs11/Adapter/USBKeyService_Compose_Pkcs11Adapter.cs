@@ -61,7 +61,14 @@ namespace HEF.USBKey.Services.Pkcs11
 
         public void AttachDeviceEventHandlers(params IUSBKey_Handler_DeviceEvent[] usbKeyDeviceEventHandlers)
         {
-            throw new NotImplementedException();
+            var usbKeyPkcs11SlotEventHandlers = new List<IUSBKey_Pkcs11_Handler_SlotEvent>();
+
+            foreach (var deviceEventHandler in usbKeyDeviceEventHandlers)
+            {
+                usbKeyPkcs11SlotEventHandlers.Add(new USBKey_Handler_DeviceEvent_Pkcs11Converter(deviceEventHandler));
+            }
+
+            ComposeUSBKeyPkcs11Service.AttachSlotEventHandlers(usbKeyPkcs11SlotEventHandlers.ToArray());
         }
 
         public void CancelMonitorDeviceEvent()
