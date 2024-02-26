@@ -10,10 +10,6 @@
     <projectUrl>https://github.com/HEF-Sharp/HEF.USBKey</projectUrl>
     <repository type="git" url="https://github.com/HEF-Sharp/HEF.USBKey.git" />
     <description>$description$</description>
-    <copyright>$copyright$</copyright>
-    <dependencies>
-      <dependency id="HEF.USBKey.Interop.SKF" version="1.2.0" />
-      <dependency id="HEF.USBKey.Common" version="1.2.0" />
-    </dependencies>
+    <copyright>$copyright$</copyright>    
   </metadata>
 </package>
