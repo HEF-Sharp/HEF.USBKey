@@ -72,6 +72,16 @@ namespace HEF.USBKey.Services.Pkcs11
             }
         }
 
+        public IEnumerable<Pkcs11_Certificate_X509> ExportX509Certificates(ulong slotId)
+        {
+            var slotCerts = ExportCertificates(slotId);
+
+            foreach (var slotCert in slotCerts)
+            {
+                yield return slotCert.BuildX509Certificate(Provider);
+            }
+        }
+
         public bool ChangeTokenPIN(ulong slotId, string oldPin, string newPin)
         {
             var slot = GetPresentSlotById(slotId);

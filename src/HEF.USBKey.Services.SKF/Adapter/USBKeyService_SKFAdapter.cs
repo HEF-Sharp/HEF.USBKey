@@ -53,6 +53,11 @@ namespace HEF.USBKey.Services.SKF
             return USBKeySKFService.ExportDeviceCertificates(deviceIdOrName);
         }
 
+        public IEnumerable<USBKey_Certificate_X509> ExportDeviceX509Certificates(string deviceIdOrName)
+        {
+            return USBKeySKFService.ExportDeviceX509Certificates(deviceIdOrName);
+        }
+
         public bool ChangeDevicePIN(string deviceIdOrName, string oldPin, string newPin)
         {
             var result = USBKeySKFService.ChangeDeviceDefaultAppPIN(deviceIdOrName, oldPin, newPin);

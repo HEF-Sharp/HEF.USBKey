@@ -15,7 +15,9 @@ namespace HEF.USBKey.Services.Pkcs11
         ISlot GetPresentSlotById(ulong slotId);
 
         IEnumerable<Pkcs11_Certificate> ExportCertificates(ulong slotId);
-        
+
+        IEnumerable<Pkcs11_Certificate_X509> ExportX509Certificates(ulong slotId);
+
         bool ChangeTokenPIN(ulong slotId, string oldPin, string newPin);
 
         bool VerifyTokenPIN(ulong slotId, string pin);

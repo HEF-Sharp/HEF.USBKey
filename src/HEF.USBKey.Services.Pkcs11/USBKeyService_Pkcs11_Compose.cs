@@ -68,12 +68,7 @@ namespace HEF.USBKey.Services.Pkcs11
         {
             var usbKeyPkcs11Service = GetMatchUSBKeyPkcs11Service(providerName);
 
-            var slotCerts = usbKeyPkcs11Service.ExportCertificates(slotId);
-
-            foreach (var slotCert in slotCerts)
-            {
-                yield return slotCert.BuildX509Certificate(usbKeyPkcs11Service);
-            }
+            return usbKeyPkcs11Service.ExportX509Certificates(slotId);
         }
 
         public bool ChangeTokenPIN(string providerName, ulong slotId, string oldPin, string newPin)

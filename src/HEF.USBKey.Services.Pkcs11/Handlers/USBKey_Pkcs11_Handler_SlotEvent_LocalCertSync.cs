@@ -1,6 +1,5 @@
 ﻿using HEF.USBKey.Common;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace HEF.USBKey.Services.Pkcs11
@@ -24,9 +23,7 @@ namespace HEF.USBKey.Services.Pkcs11
 
         protected void Handle_SlotPlugInEvent(Pkcs11_SlotInOutEvent slotInOutEvent, IUSBKeyService_Pkcs11 usbKeyPkcs11Service)
         {
-            var slotCerts = usbKeyPkcs11Service.ExportCertificates(slotInOutEvent.SlotId);
-
-            var slotX509Certs = BuildSlotX509Certs(usbKeyPkcs11Service, slotCerts.ToArray());
+            var slotX509Certs = usbKeyPkcs11Service.ExportX509Certificates(slotInOutEvent.SlotId);            
 
             USBKeyLocalCertStoreService.AddDeviceCertsToLocalCurrentUser(slotInOutEvent.ProviderName, slotInOutEvent.SlotId.ToString(), slotX509Certs.ToArray());
         }
@@ -35,16 +32,5 @@ namespace HEF.USBKey.Services.Pkcs11
         {
             USBKeyLocalCertStoreService.RemoveDeviceCertsFromLocalCurrentUser(slotInOutEvent.ProviderName, slotInOutEvent.SlotId.ToString());
         }
-
-        #region Helper Functions
-        protected static IEnumerable<Pkcs11_Certificate_X509> BuildSlotX509Certs(
-            IUSBKeyService_Pkcs11 usbKeyPkcs11Service, params Pkcs11_Certificate[] slotCerts)
-        {
-            foreach (var slotCert in slotCerts)
-            {
-                yield return slotCert.BuildX509Certificate(usbKeyPkcs11Service);
-            }
-        }
-        #endregion
     }
 }

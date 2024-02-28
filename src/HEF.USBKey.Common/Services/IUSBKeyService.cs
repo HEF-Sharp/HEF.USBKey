@@ -22,6 +22,11 @@ namespace HEF.USBKey.Common
         IEnumerable<USBKey_Certificate> ExportDeviceCertificates(string deviceIdOrName);
 
         /// <summary>
+        /// 导出设备所有证书
+        /// </summary>
+        IEnumerable<USBKey_Certificate_X509> ExportDeviceX509Certificates(string deviceIdOrName);
+
+        /// <summary>
         /// 修改设备PIN码
         /// </summary>
         bool ChangeDevicePIN(string deviceIdOrName, string oldPin, string newPin);

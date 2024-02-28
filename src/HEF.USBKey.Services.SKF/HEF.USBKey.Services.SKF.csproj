@@ -68,7 +68,6 @@
     <Compile Include="USBKeyService_SKF_Base.cs" />
     <Compile Include="USBKeyService_SKF_Base_LoopMonitor.cs" />
     <Compile Include="USBKeyService_SKF_Compose.cs" />
-    <Compile Include="LocalCert\USBKeyService_SKF_LocalCertSync.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HEF.USBKey.Common\HEF.USBKey.Common.csproj">

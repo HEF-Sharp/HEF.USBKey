@@ -25,6 +25,11 @@ namespace HEF.USBKey.Services.SKF
         IEnumerable<SKF_Certificate> ExportDeviceCertificates(string deviceName);
 
         /// <summary>
+        /// 导出设备所有证书
+        /// </summary>
+        IEnumerable<SKF_Certificate_X509> ExportDeviceX509Certificates(string deviceName);
+
+        /// <summary>
         /// 修改设备默认App对应PIN码
         /// </summary>
         SKFResult<int> ChangeDeviceDefaultAppPIN(string deviceName, string oldPin, string newPin);

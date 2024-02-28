@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 
 namespace HEF.USBKey.Services.SKF
@@ -67,17 +65,7 @@ namespace HEF.USBKey.Services.SKF
         {
             var usbKeySKFService = GetMatchUSBKeySKFService(providerName);
 
-            var deviceCerts = usbKeySKFService.ExportDeviceCertificates(deviceName);
-
-            foreach (var deviceCert in deviceCerts)
-            {
-                yield return new SKF_Certificate_X509
-                {
-                    ForSign = deviceCert.ForSign,
-                    CertBytes = deviceCert.CertBytes,
-                    X509Cert = new X509Certificate2(deviceCert.CertBytes, (SecureString)null, X509KeyStorageFlags.UserKeySet)
-                };
-            }
+            return usbKeySKFService.ExportDeviceX509Certificates(deviceName);
         }
 
         public SKFResult<int> ChangeDeviceDefaultAppPIN(string providerName, string deviceName, string oldPin, string newPin)

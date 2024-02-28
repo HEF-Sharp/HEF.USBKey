@@ -59,6 +59,13 @@ namespace HEF.USBKey.Services.Pkcs11
             return USBKeyPkcs11Service.ExportCertificates(slotId);
         }
 
+        public IEnumerable<USBKey_Certificate_X509> ExportDeviceX509Certificates(string deviceIdOrName)
+        {
+            var slotId = Convert.ToUInt64(deviceIdOrName);
+
+            return USBKeyPkcs11Service.ExportX509Certificates(slotId);
+        }
+
         public bool ChangeDevicePIN(string deviceIdOrName, string oldPin, string newPin)
         {
             var slotId = Convert.ToUInt64(deviceIdOrName);

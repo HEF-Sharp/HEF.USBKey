@@ -1,9 +1,6 @@
 ﻿using HEF.USBKey.Common;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security;
-using System.Security.Cryptography.X509Certificates;
 
 namespace HEF.USBKey.Services.SKF
 {
@@ -26,9 +23,7 @@ namespace HEF.USBKey.Services.SKF
 
         protected void Handle_DevicePlugInEvent(SKF_DeviceInOutEvent deviceInOutEvent, IUSBKeyService_SKF usbKeySKFService)
         {
-            var deviceCerts = usbKeySKFService.ExportDeviceCertificates(deviceInOutEvent.DeviceName);
-            
-            var deviceX509Certs = BuildDeviceX509Certs(deviceCerts.ToArray());
+            var deviceX509Certs = usbKeySKFService.ExportDeviceX509Certificates(deviceInOutEvent.DeviceName);
 
             USBKeyLocalCertStoreService.AddDeviceCertsToLocalCurrentUser(deviceInOutEvent.ProviderName, deviceInOutEvent.DeviceName, deviceX509Certs.ToArray());
         }
@@ -37,20 +32,5 @@ namespace HEF.USBKey.Services.SKF
         {
             USBKeyLocalCertStoreService.RemoveDeviceCertsFromLocalCurrentUser(deviceInOutEvent.ProviderName, deviceInOutEvent.DeviceName);
         }
-
-        #region Helper Functions
-        protected static IEnumerable<SKF_Certificate_X509> BuildDeviceX509Certs(params SKF_Certificate[] deviceCerts)
-        {
-            foreach (var deviceCert in deviceCerts)
-            {
-                yield return new SKF_Certificate_X509
-                {
-                    ForSign = deviceCert.ForSign,
-                    CertBytes = deviceCert.CertBytes,
-                    X509Cert = new X509Certificate2(deviceCert.CertBytes, (SecureString)null, X509KeyStorageFlags.UserKeySet)
-                };
-            }
-        }
-        #endregion
     }
 }

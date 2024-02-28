@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Security;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -92,6 +94,21 @@ namespace HEF.USBKey.Services.SKF
                         }
                     }
                 }
+            }
+        }
+
+        public IEnumerable<SKF_Certificate_X509> ExportDeviceX509Certificates(string deviceName)
+        {
+            var deviceCerts = ExportDeviceCertificates(deviceName);
+
+            foreach (var deviceCert in deviceCerts)
+            {
+                yield return new SKF_Certificate_X509
+                {
+                    ForSign = deviceCert.ForSign,
+                    CertBytes = deviceCert.CertBytes,
+                    X509Cert = new X509Certificate2(deviceCert.CertBytes, (SecureString)null, X509KeyStorageFlags.UserKeySet)
+                };
             }
         }
 

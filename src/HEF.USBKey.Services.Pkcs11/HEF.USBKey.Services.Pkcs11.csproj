@@ -52,7 +52,6 @@
     <Compile Include="Handlers\USBKey_Pkcs11_Handler_SlotEvent_LocalCertSync.cs" />
     <Compile Include="IUSBKeyService_Pkcs11.cs" />
     <Compile Include="IUSBKeyService_Pkcs11_Compose.cs" />
-    <Compile Include="LocalCert\USBKeyService_Pkcs11_LocalCertSync.cs" />
     <Compile Include="Models\Pkcs11_Certificate.cs" />
     <Compile Include="Models\Pkcs11_PresentSlot.cs" />
     <Compile Include="Models\Pkcs11_SlotInOutEvent.cs" />
