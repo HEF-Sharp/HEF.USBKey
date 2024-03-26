@@ -12,8 +12,8 @@
     <description>$description$</description>
     <copyright>$copyright$</copyright>
     <dependencies>
-      <dependency id="HEF.USBKey.Interop.SKF" version="1.2.2" />
-      <dependency id="HEF.USBKey.Common" version="1.2.2" />
+      <dependency id="HEF.USBKey.Interop.SKF" version="1.2.3" />
+      <dependency id="HEF.USBKey.Common" version="1.2.3" />
     </dependencies>
   </metadata>
 </package>

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HEF.USBKey.Native.SKF</id>
-    <version>1.1.4</version>
+    <version>1.2.1</version>
     <title>HEF.USBKey.Native.SKF</title>
     <authors>GreatBillows</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,7 +12,7 @@
     <description>USBKey Native Chinese Standard SKF dlls provider by Manufacturer.</description>        
     <copyright>Copyright © GreatBillows 2023</copyright>
     <dependencies>
-      <group targetFramework=".NETFramework4.5" />      
+      <group targetFramework=".NETFramework4.6.1" />
     </dependencies>
   </metadata>
 </package>
