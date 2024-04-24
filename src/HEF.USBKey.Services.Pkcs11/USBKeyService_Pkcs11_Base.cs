@@ -49,22 +49,20 @@ namespace HEF.USBKey.Services.Pkcs11
                     foreach (IObjectHandle certHandle in session.FindAllObjects(searchTemplate))
                     {
                         List<IObjectAttribute> objectAttributes = session.GetAttributeValue(certHandle,
-                            new List<CKA>() { CKA.CKA_ID, CKA.CKA_LABEL, CKA.CKA_SIGN, CKA.CKA_VALUE });
+                            new List<CKA>() { CKA.CKA_ID, CKA.CKA_LABEL, CKA.CKA_VALUE });
 
                         string ckaId = objectAttributes[0].GetValueAsString();
-                        string ckaLabel = objectAttributes[1].GetValueAsString();
-                        bool ckaSign = objectAttributes[2].CannotBeRead ? false : objectAttributes[2].GetValueAsBool();
-                        byte[] ckaValue = objectAttributes[3].GetValueAsByteArray();
+                        string ckaLabel = objectAttributes[1].GetValueAsString();                        
+                        byte[] ckaValue = objectAttributes[2].GetValueAsByteArray();
 
-                        var numberIndex = ckaId.IndexOf('#');
-                        if (numberIndex >= 0)
-                            ckaId = ckaId.Substring(0, numberIndex);  //截断末尾 #序号
+                        if (ckaId.Length > 36)
+                            ckaId = ckaId.Substring(0, 36);  //截断末尾 序号                        
 
                         yield return new Pkcs11_Certificate
                         {
                             Id = ckaId,
                             Label = ckaLabel,
-                            ForSign = ckaSign,
+                            ForSign = false,   //是否签名 放到后续转换为x509Cert时 再检测赋值
                             CertBytes = ckaValue
                         };
                     }

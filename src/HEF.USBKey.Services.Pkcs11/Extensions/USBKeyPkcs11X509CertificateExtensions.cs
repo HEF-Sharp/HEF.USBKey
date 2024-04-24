@@ -1,4 +1,5 @@
 ﻿using HEF.USBKey.Interop.Pkcs11;
+using System.Linq;
 using System.Security;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
@@ -11,6 +12,9 @@ namespace HEF.USBKey.Services.Pkcs11
             this Pkcs11_Certificate slotCert, IUSBKeyProvider_Pkcs11 usbKeyPkcs11Provider)
         {
             var x509Cert = new X509Certificate2(slotCert.CertBytes, (SecureString)null, X509KeyStorageFlags.UserKeySet);
+
+            var keyUsageExt = x509Cert.Extensions.OfType<X509KeyUsageExtension>().FirstOrDefault();
+            slotCert.ForSign = keyUsageExt?.KeyUsages.HasFlag(X509KeyUsageFlags.DigitalSignature) ?? false;
 
             //Set hardware linked PrivateKey
             CspParameters csp = new CspParameters(1, usbKeyPkcs11Provider.CspProviderName, slotCert.Id);
